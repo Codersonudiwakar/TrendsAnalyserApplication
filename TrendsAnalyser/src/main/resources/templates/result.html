@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Twitter Trends Results</title>
+</head>
+<body>
+    <h1>Twitter Trends Results</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Trend 1</th>
+                <th>Trend 2</th>
+                <th>Trend 3</th>
+                <th>Trend 4</th>
+                <th>Trend 5</th>
+                <th>Timestamp</th>
+                <th>IP Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="trend : ${trends}">
+                <td th:text="${trend.id}"></td>
+                <td th:text="${trend.trend1}"></td>
+                <td th:text="${trend.trend2}"></td>
+                <td th:text="${trend.trend3}"></td>
+                <td th:text="${trend.trend4}"></td>
+                <td th:text="${trend.trend5}"></td>
+                <td th:text="${trend.timestamp}"></td>
+                <td th:text="${trend.ipAddress}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -50,32 +50,50 @@ public class TwitterScraperService {
 
         driver.manage().window().maximize();
         
+        
+        
+      String nextBt="/html/body/div/div/div/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div/div/div/button[2]"; 
+      String pasInput="/html/body/div/div/div/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div[3]/div/label/div/div[2]/div[1]/input";
+      
+      String loginBtn="/html/body/div/div/div/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div[1]/div/div/button";
+      
        String explore="(//div[contains(@class,'css-146c3p1 r-dnmrzs')]//span)[2]";
        String trending="//div[@id='react-root']/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/nav[1]/div[1]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]";
-       String trend1="//div[contains(@class,'css-175oi2r r-6koalj')]//div";
-       String trend2="(//div[contains(@class,'css-175oi2r r-6koalj')])[3]";
-       String trend3="//div[@id='id__or0mgug7a9d']";
-       String trend4="//div[@id='react-root']/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[6]/div[1]/div[1]";
-       String trend5="//div[@id='react-root']/div[1]/div[1]/div[2]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/section[1]/div[1]/div[1]/div[7]/div[1]/div[1]";
+       String trend1="//*[@id=\"react-root\"]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[3]/div/div/div/div[2]";
+       String trend2="//*[@id=\"react-root\"]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[4]/div/div/div/div[2]";
+       String trend3="//*[@id=\"react-root\"]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[5]/div/div/div/div[2]";
+       String trend4="//*[@id=\"react-root\"]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[6]/div/div/div/div[2]";
+       String trend5="//*[@id=\"react-root\"]/div/div/div[2]/main/div/div/div/div[2]/div/div[2]/div/div/div/div[4]/div/section/div/div/div[7]/div/div/div/div[2]";
         
         
         try {
             driver.get("https://x.com/i/flow/login");
             Thread.sleep(10000);
-            WebElement usernameField = driver.findElement(By.xpath("//div[contains(@class,'css-146c3p1 r-bcqeeo')]//input[1]"));
-            WebElement nextBtn = driver.findElement(By.xpath("(//button[contains(@class,'css-175oi2r r-sdzlij')]//div)[3]"));
-            WebElement passwordField = driver.findElement(By.xpath("(//div[contains(@class,'css-146c3p1 r-bcqeeo')]//input)[2]"));
-            WebElement loginButton = driver.findElement(By.xpath("(//button[contains(@class,'css-175oi2r r-sdzlij')]//div)[3]"));
-            ExpectedConditions.visibilityOf(usernameField);
-            usernameField.sendKeys("sonukumardiwakar.mail@gmail.com");
+            System.out.println("usernameField");
+            WebElement usernameField = driver.findElement(By.xpath("//*[@id='layers']/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/label/div/div/div/input[1]"));
+            usernameField.sendKeys("sonuDiwakar555");
+            Thread.sleep(5000);
             
-            Thread.sleep(5000);
+            WebElement nextBtn = driver.findElement(By.xpath(nextBt));
             nextBtn.click();
-            passwordField.sendKeys("Sonu@555");
             Thread.sleep(5000);
+            
+            
+            WebElement passwordField = driver.findElement(By.xpath(pasInput));
+            passwordField.sendKeys("Career@5525");
+            Thread.sleep(5000);
+            
+            WebElement loginButton = driver.findElement(By.xpath(loginBtn));
             loginButton.click();
             
-            Thread.sleep(5000); // wait for the login to complete
+            Thread.sleep(10000);            
+            WebElement whatHPN=driver.findElement(By.xpath("//div[contains(@class,'css-175oi2r r-1wtj0ep')]//h2"));
+            System.out.println(whatHPN);
+            
+            ExpectedConditions.visibilityOf(whatHPN);
+            System.out.println(whatHPN.getText());
+            
+            
             
             WebElement trd1 = driver.findElement(By.xpath(trend1));
             WebElement trd2 = driver.findElement(By.xpath(trend2));
@@ -84,10 +102,15 @@ public class TwitterScraperService {
             WebElement trd5 = driver.findElement(By.xpath(trend5));
             List<String> top5Trends =new ArrayList<String>();
             top5Trends.add(trd1.getText());
+            System.out.println(trd1.getText());
             top5Trends.add(trd2.getText());
+            System.out.println(trd2.getText());
             top5Trends.add(trd3.getText());
+            System.out.println(trd3.getText());
             top5Trends.add(trd4.getText());
+            System.out.println(trd4.getText());
             top5Trends.add(trd5.getText());
+            System.out.println(trd5.getText());
 
             String currentIp = getCurrentIpAddress();
             
