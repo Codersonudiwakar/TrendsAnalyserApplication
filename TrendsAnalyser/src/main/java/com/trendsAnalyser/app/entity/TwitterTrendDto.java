@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class TwitterTrendDto {
-	    private Long id;
+	    private String id;
 	    private String trend1;
 	    private String trend2;
 	    private String trend3;
@@ -17,7 +17,7 @@ public class TwitterTrendDto {
 			super();
 			// TODO Auto-generated constructor stub
 		}
-		public TwitterTrendDto(Long id, String trend1, String trend2, String trend3, String trend4, String trend5,
+		public TwitterTrendDto(String id, String trend1, String trend2, String trend3, String trend4, String trend5,
 				LocalDateTime timestamp, String ipAddress) {
 			super();
 			this.id = id;
@@ -29,10 +29,15 @@ public class TwitterTrendDto {
 			this.timestamp = timestamp;
 			this.ipAddress = ipAddress;
 		}
-		public Long getId() {
+		
+//		public TwitterTrendDto(Object object, Object object2, Object object3, Object object4, Object object5,
+//				Object object6, LocalDateTime now, String currentIp) {
+//			// TODO Auto-generated constructor stub
+//		}
+		public String getId() {
 			return id;
 		}
-		public void setId(Long id) {
+		public void setId(String id) {
 			this.id = id;
 		}
 		public String getTrend1() {

@@ -3,17 +3,15 @@ package com.trendsAnalyser.app.entity;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+
+
+@Document(collection = "TrendsItem")
 public class TwitterTrend {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     private String trend1;
     private String trend2;
     private String trend3;
@@ -22,7 +20,7 @@ public class TwitterTrend {
     private LocalDateTime timestamp;
     private String ipAddress;
     
-	public TwitterTrend(Long id, String trend1, String trend2, String trend3, String trend4, String trend5,
+	public TwitterTrend(String id, String trend1, String trend2, String trend3, String trend4, String trend5,
 			LocalDateTime timestamp, String ipAddress) {
 		super();
 		this.id = id;
@@ -38,10 +36,10 @@ public class TwitterTrend {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getTrend1() {
